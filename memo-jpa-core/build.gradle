@@ -1,0 +1,44 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.4'
+    id 'io.spring.dependency-management' version '1.1.2'
+}
+
+group = 'com.sparta'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+// 질문1. plugins 에는 lombok 있는데 @getter 등 어노테이션 적용안됨. 플러그인과 디펜던시 어떤차이?
+// 질문2. 디펜던시에서 바로 lombok 검색해서 의존성 관리하는방법?  'org.projectlombok:lombok:1.18.26' 같은 걸 모를경우 검색도귀찮고ㅛㅛ
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    implementation 'org.hibernate:hibernate-core:6.1.7.Final'
+    // MySQL
+    implementation 'mysql:mysql-connector-java:8.0.28'
+    // mysql의 버전이 8.1 이상인 경우
+    // implementation 'com.mysql:mysql-connector-j:8.2.0'
+
+    // Spring Boot에서 JPA와 Hibernate를 설정하고 사용하는 데 필요한 모든 의존성을 포함
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework:spring-core'
+    implementation 'org.springframework:spring-web'
+    implementation 'org.springframework:spring-context'
+
+    // Lombok dependency
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+    // Spring Boot Test Starter
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+}
+
+test {
+    useJUnitPlatform()
+}
