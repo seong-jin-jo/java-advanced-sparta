@@ -1,0 +1,31 @@
+# 기본 설정
+spring:
+  application:
+    name: product-service-hw
+  datasource:
+    url: jdbc:mysql://localhost:3306/msa_exam
+    username: root
+    password: Database
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 19093
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:22222/eureka/
+    register-with-eureka: true  # Eureka 서버에 등록
+    fetch-registry: true  # Eureka 서버로부터 레지스트리 정보 가져오기
+  instance:
+    hostname: localhost-product  # 클라이언트 호스트 이름
+    prefer-ip-address: true  # IP 주소 사용 선호
+    lease-renewal-interval-in-seconds: 30  # 리스 갱신 간격
+    lease-expiration-duration-in-seconds: 90  # 리스 만료 기간
+
+management:
+  zipkin:
+    tracing:
+      endpoint: "http://localhost:9411/api/v2/spans"
+  tracing:
+    sampling:
+      probability: 1.0

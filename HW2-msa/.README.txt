@@ -1,0 +1,7 @@
+com.sparta.msa_exam.gateway // Eureka Discovery Client, Spring Web, Lombok, Reactive Gateway, Spring Boot Actuator
+com.sparta.msa_exam.product // Eureka Discovery Client , Spring Web, Lombok, OpenFeign 
+com.sparta.msa_exam.order // Eureka Discovery Client , Spring Web, Lombok, OpenFeign 
+com.sparta.msa_exam.auth // Eureka Discovery Client, SpringWeb, Lombok, Actuator, Spring Secruity 
+
+com.sparta.msa_exam.eureka-server // EurekaServer
+com.sparta.msa_exam.resilience4j.sample // Lombok, SpringWeb, Actuator, Prometheus
